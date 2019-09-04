@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../components/click_container.dart';
 
 /**
  * Author: YongChao
@@ -12,6 +13,7 @@ class MyFinance extends StatefulWidget {
 }
 
 class _MyFinanceState extends State<MyFinance> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,7 +25,14 @@ class _MyFinanceState extends State<MyFinance> {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Text("我的财务")
+          Text("我的财务"),
+          RaisedButton(
+            child: Text('normal'),
+            onPressed: () {
+              print("1111");
+            },
+          ),
+          TapboxA(),
         ],
       ),
     );

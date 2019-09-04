@@ -1,6 +1,7 @@
+import 'package:common_utils/common_utils.dart';
 import 'package:flutter/material.dart';
 import 'dart:ui';
-import '../../components/values/dimens.dart';
+import '../../values/dimens.dart';
 /**
  * Author: YongChao
  * Date: 19-9-2 下午2:50
