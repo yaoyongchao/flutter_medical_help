@@ -1,5 +1,6 @@
 import 'package:common_utils/common_utils.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_medical_help/components/my_head.dart';
 import 'dart:ui';
 import '../../values/dimens.dart';
 /**
@@ -22,23 +23,9 @@ class MyDrawer extends StatelessWidget {
             color: Colors.transparent,
             height: 40,
           ),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              Container(
-                margin: EdgeInsets.fromLTRB(Dimens.drawerLeftMargin, 0.0, 14, 0.0),
-                decoration: ShapeDecoration(
-                    shape: CircleBorder(
-                      side: BorderSide(color: Colors.white,width: Dimens.avatarBorder,style: BorderStyle.solid),
-                    )
-                ),
-                child: CircleAvatar(
-                  radius: Dimens.avatarSize,
-                  backgroundImage: NetworkImage("http://192.168.10.42:8080/MyDemo/aa/ab.jpg"),
-                ),
-              ),
-              Text("徐铭",style: TextStyle(fontSize: 22,color: Colors.white,fontWeight: FontWeight.bold),),
-            ],
+          Container(
+            padding: EdgeInsets.only(left: Dimens.drawerLeftMargin),
+            child: MyHead(),
           ),
           Divider(
             color: Colors.transparent,

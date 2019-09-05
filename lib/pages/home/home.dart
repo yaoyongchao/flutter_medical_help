@@ -151,7 +151,13 @@ class _HomeState extends State<Home> {
     ];
 
     var tempList = listData.asMap().keys.map((index){
-      return GridItem(listData[index]['title'], listData[index]['imgUrl'],onTap: ()=>{LogUtil.e("aaaa")},);
+//      return GridItem(listData[index]['title'], listData[index]['imgUrl'],onTap: ()=>{LogUtil.e("aaaa")},);
+      return FlatButton(
+        child: GridItem(listData[index]['title'], listData[index]['imgUrl'],),
+        onPressed: () {_onItem(index);},
+        color: Colors.white,
+        highlightColor: index == listData.length-1?Colors.white:Colors.black12
+      );
     });
     return tempList.toList();
   }
@@ -240,57 +246,38 @@ class TopMenu extends StatelessWidget {
 class GridItem extends StatefulWidget {
   final String title;
   final String imgUrl;
-  final GestureTapCallback onTap;
   const GridItem(this.title, this.imgUrl,
       {
         Key key,
-        this.onTap
       }) : super(key: key);
 
   @override
-  _GridItemState createState() => _GridItemState(title,imgUrl,onTap:onTap);
+  _GridItemState createState() => _GridItemState(title,imgUrl,);
 }
 
 class _GridItemState extends State<GridItem> {
   final String title;
   final String imgUrl;
-  final GestureTapCallback onTap;
-  bool _onPressed = false;
 
-  _GridItemState(this.title, this.imgUrl,{this.onTap});
-
-  _onClick(bool b) {
-    setState(() {
-      _onPressed = b;
-    });
-  }
+  _GridItemState(this.title, this.imgUrl,);
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onTap,
-      onTapDown: (details) {_onClick(true);},
-      onTapUp: ( details) {_onClick(false);},
-      onTapCancel: () {_onClick(false);},
-      child: Container(
-        height: 30,
-        color: _onPressed?Colors.black12: Colors.white,
-        child: imgUrl==''?SizedBox(height: 2,):Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            Image.asset(imgUrl,height: 40,),
-            SizedBox(height: 8,),
-            title == ''?SizedBox(height: 0,):Text(
-              title,
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                  fontSize: 16
-              ),
-            ),
-          ],
+    return imgUrl==''?SizedBox(height: 2,):Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: <Widget>[
+        Image.asset(imgUrl,height: 40,),
+        SizedBox(height: 8,),
+        title == ''?SizedBox(height: 0,):Text(
+          title,
+          textAlign: TextAlign.center,
+          style: TextStyle(
+              fontSize: 16
+          ),
         ),
-      ),
+      ],
     );
+
   }
 }

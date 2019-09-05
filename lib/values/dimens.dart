@@ -11,5 +11,7 @@ class Dimens{
   static const double avatarDividerHeight = 1.0;
   static const double drawerLeftMargin = 30.0;
 
-  static const double defaultMargin = 14.0;
+  static const double defaultMargin = 16.0;
+  static const double arrowSize = 15.0;
+  static const double defaultDivider = 2.0;
 }
